@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".github/workflows/cake.yml" />
+    <File Path="ci-pipeline.cs" />
+    <File Path="LICENSE" />
+    <File Path="OpenApiSpec/tmdb-openapi-v3_0_0.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="KozshTheMovieDbApi.Tests/KozshTheMovieDbApi.Tests.csproj" Id="37706bd6-c5e0-47ca-a692-0abe2c2913ec" />
+  <Project Path="KozshTheMovieDbApi/KozshTheMovieDbApi.csproj" />
+</Solution>
