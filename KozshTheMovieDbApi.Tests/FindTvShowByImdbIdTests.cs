@@ -26,6 +26,7 @@ public class FindTvShowByImdbIdTests(TestConfigFixture config) : IClassFixture<T
 
         Assert.NotNull(requestInfo);
         Assert.NotNull(requestInfo.TvResults);
+        Assert.NotEmpty(requestInfo.TvResults);
         Assert.NotNull(requestInfo.TvResults[0]);
 
         Assert.NotNull(requestInfo.TvResults[0].Name);
@@ -34,7 +35,7 @@ public class FindTvShowByImdbIdTests(TestConfigFixture config) : IClassFixture<T
     }
 
     [Fact]
-    public async Task ToGetRequestInformation_RetrieveTVShowSeason()
+    public async Task GetAsync_TvSeason_ReturnsExpectedFields()
     {
         var requestAdapter = new HttpClientRequestAdapter(new TokenAuthenticationProvider(_cfg.ApiToken));
         var apiClient = new ApiClient(requestAdapter);
@@ -50,7 +51,7 @@ public class FindTvShowByImdbIdTests(TestConfigFixture config) : IClassFixture<T
         Assert.NotNull(tvShowWithEpisodes);
 
         Assert.NotNull(tvShowWithEpisodes.Id);
-        Assert.Equal("52540e7f19c295794031e163".ToLowerInvariant(), tvShowWithEpisodes.Id);
+        Assert.Equal("52540e7f19c295794031e163", tvShowWithEpisodes.Id);
 
         Assert.NotNull(tvShowWithEpisodes.Episodes);
         Assert.Equal(17, tvShowWithEpisodes.Episodes.Count);

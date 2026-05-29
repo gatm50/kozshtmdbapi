@@ -54,7 +54,7 @@ namespace KozshTheMovieDbApi.v3.Tv.Item
         public int? SeasonNumber { get; set; }
 
         /// <summary>The vote_average property</summary>
-        public float? VoteAverage { get; set; }
+        public double? VoteAverage { get; set; }
 
         /// <summary>
         /// Instantiates a new <see cref="WithSeries_GetResponse_seasons"/> and sets the default values.
@@ -88,7 +88,7 @@ namespace KozshTheMovieDbApi.v3.Tv.Item
                 { "overview", n => { Overview = n.GetStringValue(); } },
                 { "poster_path", n => { PosterPath = n.GetStringValue(); } },
                 { "season_number", n => { SeasonNumber = n.GetIntValue(); } },
-                { "vote_average", n => { VoteAverage = n.GetFloatValue(); } },
+                { "vote_average", n => { VoteAverage = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace KozshTheMovieDbApi.v3.Tv.Item
             writer.WriteStringValue("overview", Overview);
             writer.WriteStringValue("poster_path", PosterPath);
             writer.WriteIntValue("season_number", SeasonNumber);
-            writer.WriteFloatValue("vote_average", VoteAverage);
+            writer.WriteDoubleValue("vote_average", VoteAverage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
