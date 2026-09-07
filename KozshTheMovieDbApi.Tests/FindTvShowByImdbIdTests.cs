@@ -48,6 +48,21 @@ public class FindTvShowByImdbIdTests(TestConfigFixture config) : IClassFixture<T
                 }, TestContext.Current.CancellationToken
             );
 
+        var episodeGroups = await apiClient.RootBuilder.Tv[10097].Episode_groups.GetAsync(config =>
+        {
+        }, TestContext.Current.CancellationToken);
+
+        foreach (var group in episodeGroups.Results)
+        {
+            var groupDetails = await apiClient.RootBuilder.Tv.Episode_group[group.Id].GetAsync(config =>
+            {
+            }, TestContext.Current.CancellationToken);
+            Assert.NotNull(groupDetails);
+            Assert.Equal(group.Id, groupDetails.Id);
+        }
+
+
+
         Assert.NotNull(tvShowWithEpisodes);
 
         Assert.NotNull(tvShowWithEpisodes.Id);
